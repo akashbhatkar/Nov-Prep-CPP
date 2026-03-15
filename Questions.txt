@@ -1,0 +1,32 @@
+1. Modern C++ & Move Semantics
+Move Semantics: Explain rvalue references (T&&) and how std::move helps avoid expensive copies of temporary objects.
+Smart Pointers: Discuss the differences between std::unique_ptr, std::shared_ptr, and std::weak_ptr. Be prepared to explain how shared_ptr uses reference counting and how weak_ptr prevents cyclic dependencies.
+Lambda Expressions: Explain capture clauses (by value [=] vs. by reference [&]) and when to use mutable lambdas.
+Newer Standards: Mention features like auto type inference, nullptr, constexpr, and C++17's std::optional or std::any. 
+InterviewBit
+InterviewBit
+ +3
+2. Advanced Memory & RAII
+Resource Acquisition Is Initialization (RAII): This is a critical "mid-level" topic. Explain how tying resource lifetimes to object lifetimes ensures exception safety and prevents leaks.
+Memory Management: Discuss the difference between stack and heap memory. You might be asked how to debug memory leaks or dangling pointers in large applications.
+Vtable & Dynamic Dispatch: Explain how virtual functions work internally via the virtual table (vtable) and virtual pointer (vptr) for runtime polymorphism. 
+InterviewBit
+InterviewBit
+ +5
+3. STL & Concurrency
+STL Containers: Compare std::vector vs. std::list in terms of memory layout and time complexity for different operations. Know when to use std::map (ordered) vs. std::unordered_map (hash-based).
+Multithreading: Explain how to use std::thread, std::mutex, and std::lock_guard. Be ready to define race conditions and deadlocks, and how to prevent them. 
+InterviewBit
+InterviewBit
+ +2
+4. Design & Soft Skills
+Design Patterns: Mid-level candidates should know common patterns like Singleton, Factory, and Observer.
+The Rule of Five: Explain why defining a destructor often requires defining the copy/move constructors and assignment operators.
+Debugging Stories: Be ready to describe a specific time you debugged a complex memory or performance issue. 
+GeeksforGeeks
+GeeksforGeeks
+ +4
+Common Coding Challenges
+String/Array Logic: Reversing a string in-place, finding anagrams, or finding the second-largest element in an array.
+Linked Lists: Detecting cycles or reversing a linked list.
+Trees: Finding the height of a binary tree using recursion.
