@@ -30,3 +30,58 @@ Common Coding Challenges
 String/Array Logic: Reversing a string in-place, finding anagrams, or finding the second-largest element in an array.
 Linked Lists: Detecting cycles or reversing a linked list.
 Trees: Finding the height of a binary tree using recursion.
+
+
+
+
+
+
+Phase 1: Core Fundamentals Refresher (Days 1–3)
+Don't spend weeks reading basic syntax. Do a rapid review of the core building blocks, focusing on how they look in memory.
+
+Pointers & Memory: Understand the Heap vs. Stack. Practice raw pointers, references (&), pointer arithmetic, and the difference between passing by value, passing by reference, and passing by pointer.
+
+The static Keyword: Review static variables and functions (and why static functions lack a this pointer).
+
+Const Correctness: Make sure you know the difference between const int* p (pointer to constant data) and int* const p (constant pointer).
+
+
+
+
+Phase 2: Mastering Object-Oriented C++ (Days 4–7)
+This is where interviewers look for deep understanding. Focus heavily on RAII and resource management.
+
+The Big 3 / Big 5: Write your own class that manages a resource (like a dynamic array) to master the Copy Constructor, Copy Assignment Operator, Destructor, and the C++11 Move Constructor / Move Assignment Operator.
+
+Polymorphism Under the Hood: Don't just learn what a virtual function is. Learn how it works via the VTABLE (Virtual Table) and VPTR (Virtual Pointer).
+
+Virtual Destructors: Always know why a base class needs a virtual ~Base(); to prevent memory leaks during polymorphic deletion.
+
+
+
+Phase 3: Deep Dive into the STL (Days 8–12)
+You’ve already looked at maps, sets, and lists. Now, systematize them based on their underlying data structures and time granularities.Sequence Containers: std::vector (Contiguous/Dynamic Array) vs. std::list (Doubly Linked) vs. std::forward_list (Singly Linked). Understand Cache Locality.Associative Containers: std::map / std::set (Red-Black Trees, $O(\log n)$) vs. std::unordered_map / std::unordered_set (Hash Tables, $O(1)$ average).Custom Key Trap: Practice how to use a custom struct or class as a key in a std::map (requires overloading operator<) versus an unordered_map (requires a custom hash function and operator==).
+
+
+
+Phase 4: Modern C++ and Smart Pointers (Days 13–15)
+Modern production environments do not use raw new and delete. Interviewers want to see Modern C++ (C++11 up to C++20).
+
+Smart Pointers: Understand exactly how std::unique_ptr transfers ownership via std::move, how std::shared_ptr manages a control block (Reference Counting via shallow copies), and how std::weak_ptr prevents cyclic dependency deadlocks.
+
+Move Semantics: Understand rvalue references (&&) and std::move(). It allows transferring resources instead of copying them, which supercharges performance.
+
+Keywords: Get comfortable with auto, nullptr, override, and final.
+
+
+
+Phase 5: Concurrency and Threading (Days 16–18)
+Since you are prepping for serious development tracks (and possibly Qt/QML tracks), multithreading is non-negotiable.
+
+Primitives: Practice thread creation with std::thread, safeguarding data with std::mutex, and utilizing RAII locks like std::lock_guard and std::unique_lock.
+
+Thread Communication: Implement a classic Producer-Consumer pattern using std::condition_variable.
+
+Atomics: Know when to use std::atomic<int> for lightweight, lock-free performance instead of a heavy mutex.
+
+
