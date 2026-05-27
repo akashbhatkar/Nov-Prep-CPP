@@ -106,3 +106,28 @@ destructor called
 destructor called
 destructor called
 destructor called*/
+
+/* Why to use && in the move sematics
+Rvalue references allow a function to distinguish temporary objects (rvalues) from objects with a name (lvalues).
+When a temporary object or std::move(obj) is passed, it becomes an rvalue, which can bind to Type&&.
+
+  temporary object means a unnamed object which can goes out of scope after the calling instruction.
+  ex. mystring m5(mystring("Akash");
+here mystring("Akash") will create one object and it says to move it into m5 but it is a temporary object to support this we need 
+&& to add into the move constructor or assignment operator
+* Temporaries (rvalues) are unnamed objects that last only until the end of the full expression.
+* Move constructor with Type&& binds to these temporaries, enabling resource transfer.
+* After moving, the temporary is left in a valid but empty state, and the new object takes ownership.
+* The && lets your move constructor/assignment accept rvalues (temporaries) directly.
+* But named variables (lvalues) cannot bind to && directly.
+* So, to treat a named object as an rvalue and enable moving, you use std::move to cast it to an rvalue reference.
+* This allows calling the move constructor/assignment on normal objects explicitly.*/
+
+/* Standard library containers (like std::vector, std::string) prefer to use move operations during their internal reallocations 
+only if the move constructor or move assignment is noexcept
+if not used noexcept then, move operations might throw, containers fall back to copying instead of moving to maintain strong exception safety, 
+which can be more expensive.
+Without noexcept, some STL containers might avoid using your move constructor and copy instead, hurting performance.
+In move semantics, marking functions noexcept promises they won't throw exceptions,
+which helps optimize performance and guarantees safety during moves. */
+
